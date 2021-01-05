@@ -23,6 +23,5 @@ class Solution:
                                         if ((j+1)==self.data):
                                                 self.arr[i+1] = -1
                 return self.arr
-
 p1 = Solution()
 print(p1._replace_it_em())
