@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution():
         def __init__(self):
                 self.arr = [1, 2, 3, 4, 6, 5, 4, 3, 2, 1]
 
