@@ -33,5 +33,3 @@ class Solution:
 
 p1 = Solution()
 print(p1.removeCommon())
-
-
