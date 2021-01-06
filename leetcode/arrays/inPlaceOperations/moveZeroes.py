@@ -47,8 +47,9 @@ class Solution:
                 while(k__ < n__):
                         self.arr.append(0)
                         k__ += 1
-                        
-
+                del n__
+                del k__
+                del i__
                 return self.arr
 p1 = Solution()
 print(p1.updateNonSortedArr())
