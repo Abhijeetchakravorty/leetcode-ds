@@ -12,11 +12,9 @@ class Solution:
         
         def returnNum(self):
                 self.arr = sorted(self.arr, reverse=True)
-                print(self.arr)
-                if (self.data < 2):
-                        return self.arr[1]
-                elif (self.data < 1):
-                        return self.arr[0]
+                print(self.arr)                
+                if (self.data < 3 or self.data < 2):
+                        return self.arr[self.data-1]
                 else:
                         return self.arr[2]
 
