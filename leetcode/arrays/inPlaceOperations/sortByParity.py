@@ -32,7 +32,11 @@ class Solution:
                 del __j
                 del pos
                 del self.data
-                return self.arr
-
+                self.printData(self.arr)
+                del self.arr
+        
+        def printData(self, data):
+                print(data)
+                
 p1 = Solution()
-print(p1.sortArr())
+p1.sortArr()
