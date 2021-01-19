@@ -12,7 +12,6 @@ class Solution:
                         else:
                                 indx += 1
                         self.updateArr(indx+1)
-                # self.num3 = self.num3.sort()
                 return sorted(self.num3)
 p1 = Solution()
 p2 = p1.updateArr(0)
