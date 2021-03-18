@@ -29,6 +29,19 @@ class LinkedList {
 		this.head = startingnode;
 	}
 
+	setNodeAtEnd(endingNode) {
+		let temp = this.head;
+		let last = false;
+		while(temp) {
+			if (temp.next == null) {
+				temp.next = endingNode;
+				break;
+			} else {
+				temp = temp.next;
+			}
+		}
+	}
+
 	deleteNode(node) {
 		this.head = node.next;
 		node.remove();
@@ -42,5 +55,12 @@ let third = new Node(15);
 llist.addNeighbour(llist.head, second);
 llist.addNeighbour(second, third);
 llist.printList();
-
-
+console.log('First iteration ends-----------------------------');
+let one = new Node(9);
+llist.setNodeAtStart(one);
+llist.printList();
+console.log('second iteration ends-----------------------------');
+let last = new Node(15);
+llist.setNodeAtEnd(last);
+llist.printList();
+console.log('Final Iteration ends------------------------------');
