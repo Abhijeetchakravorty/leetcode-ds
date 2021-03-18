@@ -42,6 +42,10 @@ class LinkedList {
 		}
 	}
 
+	setNodeAtPos(index, data) {
+		
+	}
+
 	deleteNode(node) {
 		this.head = node.next;
 		node.remove();
