@@ -12,8 +12,8 @@ var squaredElements = function(elements) {
             }
         } else {
             if (elements[self.i] < elements[self.i+1] && elements[self.i+1] !== undefined) {
-                self.temp = elements[i]; 
-                elements[i] = elements[i+1]
+                self.temp = elements[self.i]; 
+                elements[i] = elements[self.i+1]
                 elements[i+1] = self.temp;
                 self.i = 0;
             } else {
