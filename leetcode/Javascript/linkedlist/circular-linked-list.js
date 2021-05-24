@@ -59,7 +59,17 @@ class LinkedList {
 	}
 
 	hasCycle() {
-		
+		let nodes_seen = new Set();
+		let temp = this.head;
+		while(temp) {
+			console.log(temp.element);
+			nodes_seen.add(temp);
+			temp = temp.next;
+			if (nodes_seen.has(temp)) {
+				console.log("The Linked List is a Circular Linked List: "+true);
+				break;
+			}
+ 		}
 	}
 
 	deleteNode(node) {
@@ -79,3 +89,4 @@ llist.addNeighbour(third, fourth);
 llist.printList();
 console.log('/////////');
 llist.setCycle(2);
+llist.hasCycle();
