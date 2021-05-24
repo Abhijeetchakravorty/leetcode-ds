@@ -56,7 +56,11 @@ class LinkedList {
 				break;
 			}
 		};
-	} 
+	}
+
+	hasCycle() {
+		
+	}
 
 	deleteNode(node) {
 		this.head = node.next;
