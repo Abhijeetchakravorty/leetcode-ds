@@ -58,18 +58,23 @@ class LinkedList {
 		};
 	}
 
-	hasCycle() {
+	hasCycle(startPos) {
 		let nodes_seen = new Set();
 		let temp = this.head;
+		let flag = false;
 		while(temp) {
 			console.log(temp.element);
 			nodes_seen.add(temp);
 			temp = temp.next;
 			if (nodes_seen.has(temp)) {
-				console.log("The Linked List is a Circular Linked List: "+true);
+				console.log("The Linked List is a Circular Linked List: "+true+" and connected at index: "+(startPos-1));
+				flag = true;
 				break;
 			}
  		}
+		if (!flag) {
+			console.log("The linked list is not cicular");
+		}
 	}
 
 	deleteNode(node) {
@@ -88,5 +93,6 @@ llist.addNeighbour(second, third);
 llist.addNeighbour(third, fourth);
 llist.printList();
 console.log('/////////');
+llist.hasCycle(null);
 llist.setCycle(2);
-llist.hasCycle();
+llist.hasCycle(2);
