@@ -68,8 +68,27 @@ class MyLinkedList {
         }
     }
 
-    deleteAtIndex() {
-        
+    deleteAtIndex(index) {
+        let counter = 1;
+        let temp = this.head;
+        while(counter < index) {
+            if (counter+1 == index) {
+                if (temp.next !== null && temp.next !== undefined) {
+                    if (temp.next.next !== null && temp.next.next !== undefined) {
+                        let tempNext = temp.next.next;
+                        tempNext.prev = temp;
+                        temp = tempNex;
+                        break;
+                    } else {
+                        return temp;
+                    }
+                } else {
+                    return temp;
+                }
+            } else {
+                temp = temp.next;
+            }
+        }
     }
 
     addNeighbour(src, dest) {
