@@ -26,10 +26,10 @@ class LinkedList {
 		let prev = null;
 		let curr = head;
 		while (curr != null) {
-			let nextTemp = curr.next;
-		    	curr.next = prev;
-		    	prev = curr;
-		    	curr = nextTemp;
+			let nextTemp = curr.next; /// store next item in temp 
+		    	curr.next = prev; // store prev element in the next variable
+		    	prev = curr; // change prev equal to current 
+		    	curr = nextTemp; /// change current to nextTemp
 		}
 		return prev;
 	}
@@ -38,9 +38,9 @@ class LinkedList {
 		if (head === null || head === undefined || head.next === null || head.next === undefined) {
 			return head;
 		}
-		let p = this.reverseList_v1(head.next)
-		head.next.next = head;
-		head.next = null;
+		let p = this.reverseList_v1(head.next) // in recursion
+		head.next.next = head; // keep changing loop
+		head.next = null; // set next = null
 		return p;
 	}
 }
@@ -56,13 +56,16 @@ llistOne.addNeighbour(second, third);
 llistOne.addNeighbour(third, fourth);
 llistOne.addNeighbour(fourth, fifth);
 llistOne.printList();
+
 console.log('////////////');
 console.log('////////////');
 console.log('////////////');
-llistOne.head = llistOne.reverseList_v1(llistOne.head);
+
+llistOne.head = llistOne.reverseList_v1(llistOne.head); // unless assigned to a variable it won't work
 llistOne.printList();
+
 console.log('////////////');
 console.log('////////////');
 console.log('////////////');
-llistOne.head = llistOne.reverseList(llistOne.head);
+llistOne.head = llistOne.reverseList(llistOne.head); // unless assigned to a variable it won't work
 llistOne.printList();
