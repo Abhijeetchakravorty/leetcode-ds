@@ -52,8 +52,7 @@ class LinkedList {
                 if(head==null) {
                         return;
                 }
-                 
-                var self = this;
+                let self = this;
                 self.curr = head;
                 while (self.curr) {
                         if (self.curr.child) {
