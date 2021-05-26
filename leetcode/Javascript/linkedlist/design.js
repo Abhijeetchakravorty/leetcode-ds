@@ -31,12 +31,13 @@ class MyLinkedList {
 		this.head = start;
     }
 
-    addAtTail(){
+    addAtTail(endingNode){
         let temp = this.head;
 		let last = false;
 		while(temp) {
 			if (temp.next == null) {
 				temp.next = endingNode;
+                endingNode.prev = temp;
 				break;
 			} else {
 				temp = temp.next;
@@ -45,14 +46,12 @@ class MyLinkedList {
     }
 
     addAtIndex(pos, node) {
-        let counter = 1;
+        let counter = 0;
         let temporary = this.head;
         while(counter < pos) {
             if (counter+1==pos) {
                 let tempNext = temporary.next;
                 let tempPrev = temporary.next.prev;
-                console.log(tempNext.elem);
-                console.log(tempPrev.elem);
                 node.next = tempNext;
                 node.prev = tempPrev;
                 temporary.next = node;
@@ -68,8 +67,16 @@ class MyLinkedList {
         }
     }
 
+    printList() {
+        let temp = this.head;
+        while(temp) {
+                console.log(temp.element);
+                temp = temp.next;
+        }
+    }
+
     deleteAtIndex(index) {
-        let counter = 1;
+        let counter = 0;
         let temp = this.head;
         while(counter < index) {
             if (counter+1 == index) {
@@ -77,7 +84,7 @@ class MyLinkedList {
                     if (temp.next.next !== null && temp.next.next !== undefined) {
                         let tempNext = temp.next.next;
                         tempNext.prev = temp;
-                        temp = tempNex;
+                        temp = tempNext;
                         break;
                     } else {
                         return temp;
@@ -88,6 +95,7 @@ class MyLinkedList {
             } else {
                 temp = temp.next;
             }
+            counter++;
         }
     }
 
@@ -96,3 +104,26 @@ class MyLinkedList {
 		dest.prev = src;
 	}
 }
+
+
+let llistOne = new MyLinkedList();
+llistOne.head = new Node(4);
+let second  = new Node(1);
+let third = new Node(8);
+let fourth = new Node(4);
+let fifth = new Node(5);
+
+
+let first = new Node(9);
+let lastOne = new Node(10);
+let nodeSeven = new Node(11);
+
+llistOne.addNeighbour(llistOne.head, second);
+llistOne.addNeighbour(second, third);
+llistOne.addNeighbour(third, fourth);
+llistOne.addNeighbour(fourth, fifth);
+llistOne.addAtHead(first);
+llistOne.addAtTail(lastOne);
+llistOne.addAtIndex(4, nodeSeven);
+llistOne.deleteAtIndex(3);
+llistOne.printList();
