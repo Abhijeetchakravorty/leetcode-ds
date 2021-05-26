@@ -23,26 +23,33 @@ class MyLinkedList {
         }
 
 
-	addNumbers(headA, headB) {
-		let tempHead = new Node(0);
-		let data;
-		let num1 = null, num2 = null, sum=null;
-		let carry = null;
-		let counter=0
-		while(headA && headB) {
-			num1 = headA.element;
-			num2 = headB.element;
-			sum = num1 + num2;
-			carry = sum / 10;
-			console.log(tempHead);
-			tempHead.element = sum;
-			tempHead.next = 
-			console.log(tempHead.element);
-			tempHead = tempHead.next;
-			headA = headA.next;
-			headB = headB.next;
+	addNumbers(l1, l2) {
+		let dummyHead = new Node(0);
+		let p = l1, q = l2, curr = dummyHead;
+		let carry = 0;
+		while (p != null || q != null) {
+		    	let x = (p != null) ? p.element : 0;
+		    	let y = (q != null) ? q.element : 0;
+		    	let sum = carry + x + y;
+		    	carry = sum / 10;
+		    	curr.next = new Node(parseInt(sum % 10));
+		    	curr = curr.next;
+		    	if (p != null) {
+				 p = p.next
+			};
+		    	if (q != null) {
+				q = q.next
+			};
 		}
-		return null;
+
+		//// only in case when carry is greater than 0
+		// if (carry > 0) {
+		// 	console.log(carry);
+		// 	// console.log(counter);
+		//     	curr.next = new Node(carry);
+		// }
+		
+		return dummyHead.next;
 	}
 }
 
@@ -61,4 +68,5 @@ let third2 = new Node(4);
 l2.addNeighbour(l2.head, second2);
 l2.addNeighbour(second2, third2);
 // l2.printList();
-console.log(l1.addNumbers(l1.head, l2.head));
+l1.head = l1.addNumbers(l1.head, l2.head);
+l1.printList();
