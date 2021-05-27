@@ -47,6 +47,7 @@ class LinkedList {
                 }
         }
 
+        // using while loop ---> 76 - 80 ms
         flattenList(head) {
                 // # Base case
                 if(head==null) {
@@ -75,6 +76,32 @@ class LinkedList {
                         self.curr = self.curr.next;
                 }
                 return head;
+        }
+
+        // using recursion --> 108-112 ms
+        flattenMultiLevelList(head) {
+                // # base case
+                if(head == null){
+                        return head;
+                }
+                
+                // keep track of the next pointer
+                let next = head.next
+                
+                // # process the down list first
+                head.next = this.flattenMultiLevelList(head.child)
+                
+                // # go to the last node
+                let tail = head
+                while (tail.next) {
+                        tail = tail.next
+                }
+                
+                // # process the next list after the down list
+                tail.next = this.flattenMultiLevelList(next)
+                
+                // # return head node
+                return head
         }
 }
 
@@ -105,4 +132,4 @@ l1.addNeighbour(nine, ten);
 
 l1.addChild(eight, eleven);
 l1.addNeighbour(eleven, twelve);
-l1.printList(l1.flattenList(l1.head));
+l1.printList(l1.flattenMultiLevelList(l1.head));
