@@ -65,6 +65,9 @@ llist.addNeighbour(llist.head, first);
 llist.addNeighbour(first, second);
 llist.addNeighbour(second, third);
 llist.addNeighbour(third, fourth);
-
+llist.printList(llist.head);
+console.log('///////////////////////');
+console.log('///////////////////////');
+console.log('///////////////////////');
 var ret = llist.rotateRight(llist.head, 2);
 llist.printList(ret)
