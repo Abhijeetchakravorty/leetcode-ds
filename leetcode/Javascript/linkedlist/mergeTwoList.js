@@ -28,13 +28,11 @@ class LinkedList {
                 while(true) {
                         if(headA === null) {
                                 tail.next = headB;
-                                console.log("I am here");
                                 break;
                         }        
 
                         if(headB === null) {
                                 tail.next = headA;
-                                console.log("I am here");
                                 break;
                         }
 
@@ -63,7 +61,6 @@ let l2 = new LinkedList();
 l2.head = new Node(1);
 let second2 = new Node(3);
 let third2 = new Node(4);
-
 l1.addNeighbour(l1.head, second);
 l1.addNeighbour(second, third);
 l1.printList();

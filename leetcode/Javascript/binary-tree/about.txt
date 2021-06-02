@@ -1,0 +1,19 @@
+1. Pre Order traversal (RLR)
+
+Pre-order traversal is to visit the root first. Then traverse the left subtree. Finally, traverse the right subtree
+
+root --> left ---> right
+
+2. In-Order traversal (LROR)
+
+In-order traversal is to traverse the left subtree first. Then visit the root. Finally, traverse the right subtree.
+
+left --> root --> right
+
+3. Post-order traversal (LRIR)
+
+Traverse left subtree first. Then traverse right and finally visit the root
+
+left --> right ---> root
+
+4. Recursive or Iterative

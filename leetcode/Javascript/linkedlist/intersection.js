@@ -60,6 +60,8 @@ let fourthD = new Node(8);
 llistTwo.addNeighbour(llistTwo.head, secondD);
 llistTwo.addNeighbour(secondD, thirdD);
 llistTwo.addNeighbour(thirdD, fourthD);
-llistTwo.head.next.next.next = llistOne.head.next.next;
+
+llistTwo.head.next.next.next = llistOne.head.next.next; // this step is mandatory
+
 llistTwo.printList();
 console.log(llistTwo.getIntersectionNode(llistOne.head, llistTwo.head));
