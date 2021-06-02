@@ -14,7 +14,6 @@ root.right.left = new Node(3);
 
 var preOrderTraversal = function(root) {
 	if (root) {
-		console.log(root.val);
 
 		preOrderTraversal(root.left);
 

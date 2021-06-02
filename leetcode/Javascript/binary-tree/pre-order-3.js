@@ -14,22 +14,22 @@ var preOrderTraversal = function(root) {
         let nodeStack = [];
         let arr = [];
         nodeStack.push(root);
-        console.log(nodeStack);
-        // while (nodeStack.length > 0) {
-        //         node = nodeStack.pop();
-        //         arr.push(node.val);
-        //         if (node.right !== null) {
-        //                 nodeStack.push(node.right);
-        //         }
+        while (nodeStack.length > 0) {
+                node = nodeStack.pop();
+                arr.push(node.val);
+                if (node.right !== null) {
+                        nodeStack.push(node.right);
+                }
 
-        //         if (node.left !== null) {
-        //                 nodeStack.push(node.left);
-        //         }
-        // }
-        // return arr;
+                if (node.left !== null) {
+                        nodeStack.push(node.left);
+                }
+        }
+        return arr;
 }
-let root = new Node(1)
-root.right = new Node(2)
-root.right.left = new Node(3)
+let root = new Node(1);
+root.left = new Node(5);
+root.right = new Node(2);
+root.right.left = new Node(3);
 let data = preOrderTraversal(root);
 console.log(data);
