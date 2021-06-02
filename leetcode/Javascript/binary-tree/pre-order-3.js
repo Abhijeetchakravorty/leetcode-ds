@@ -11,11 +11,15 @@ var preOrderTraversal = function(root) {
                 return
         }
         // # create an empty stack and push root to it
-        let nodeStack = []
+        let nodeStack = [];
+        let arr = [];
         nodeStack.push(root);
+        console.log(nodeStack);
+        console.log("While loop start //////////");
         while (nodeStack.length > 0) {
                 node = nodeStack.pop();
-                console.log(node.val);
+                console.log(node);
+                arr.push(node.val);
                 if (node.right !== null) {
                         nodeStack.push(node.right);
                 }
@@ -24,12 +28,10 @@ var preOrderTraversal = function(root) {
                         nodeStack.push(node.left);
                 }
         }
-        console.log(nodeStack);
+        return arr;
 }
-root = new Node(10)
-root.left = new Node(8)
+let root = new Node(1)
 root.right = new Node(2)
-root.left.left = new Node(3)
-root.left.right = new Node(5)
-root.right.left = new Node(2)
-preOrderTraversal(root);
+root.right.left = new Node(3)
+let data = preOrderTraversal(root);
+console.log(data);
