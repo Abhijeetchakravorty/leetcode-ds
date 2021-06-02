@@ -16,6 +16,7 @@ var preOrderTraversal = function(root) {
         while (nodeStack.length > 0) {
                 node = nodeStack.pop();
                 console.log(node.val);
+
                 if (node.right !== null) {
                         nodeStack.push(node.right);
                 }
@@ -24,7 +25,6 @@ var preOrderTraversal = function(root) {
                         nodeStack.push(node.left);
                 }
         }
-        console.log(nodeStack);
 }
 root = new Node(10)
 root.left = new Node(8)

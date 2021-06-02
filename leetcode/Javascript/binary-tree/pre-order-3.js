@@ -15,20 +15,18 @@ var preOrderTraversal = function(root) {
         let arr = [];
         nodeStack.push(root);
         console.log(nodeStack);
-        console.log("While loop start //////////");
-        while (nodeStack.length > 0) {
-                node = nodeStack.pop();
-                console.log(node);
-                arr.push(node.val);
-                if (node.right !== null) {
-                        nodeStack.push(node.right);
-                }
+        // while (nodeStack.length > 0) {
+        //         node = nodeStack.pop();
+        //         arr.push(node.val);
+        //         if (node.right !== null) {
+        //                 nodeStack.push(node.right);
+        //         }
 
-                if (node.left !== null) {
-                        nodeStack.push(node.left);
-                }
-        }
-        return arr;
+        //         if (node.left !== null) {
+        //                 nodeStack.push(node.left);
+        //         }
+        // }
+        // return arr;
 }
 let root = new Node(1)
 root.right = new Node(2)
