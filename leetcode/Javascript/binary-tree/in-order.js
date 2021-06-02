@@ -32,7 +32,6 @@ root.right = new Node(2)
 root.right.left = new Node(3)
 console.log(inorderTraversal(root));
 
-
 root = new Node(10);
 root.left = new Node(12);
 root.right = new Node(21);
