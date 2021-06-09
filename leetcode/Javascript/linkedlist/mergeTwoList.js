@@ -29,7 +29,7 @@ class LinkedList {
                         if(headA === null) {
                                 tail.next = headB;
                                 break;
-                        }        
+                        }
 
                         if(headB === null) {
                                 tail.next = headA;

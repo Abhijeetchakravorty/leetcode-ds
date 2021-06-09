@@ -129,7 +129,6 @@ l1.addChild(third, seven);
 l1.addNeighbour(seven, eight);
 l1.addNeighbour(eight, nine);
 l1.addNeighbour(nine, ten);
-
 l1.addChild(eight, eleven);
 l1.addNeighbour(eleven, twelve);
-l1.printList(l1.flattenMultiLevelList(l1.head));
+l1.printList(l1.flattenList(l1.head));

@@ -27,6 +27,7 @@ class LinkedList {
                 self.pA = headA;
                 self.pB = headB;
 
+                // iterate over both 
                 while (self.pA != self.pB) {
                         self.pA = self.pA === null ? headB : self.pA.next;
                         self.pB = self.pB === null ? headA : self.pB.next;
