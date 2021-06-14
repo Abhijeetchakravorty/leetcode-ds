@@ -1,5 +1,6 @@
-// root --> left ---> right
+// ROOT --> LEFT ---> RIGHT
 // pre order traversal
+
 class Node {
         constructor(val, left, right) {
                 this.val = (val === undefined ? 0 : val);
@@ -7,26 +8,23 @@ class Node {
                 this.right = (right === undefined ? null : right);
         }
 }
-var preOrderTraversal = function(root) {
-        if (root === null) {
-                return
-        }
-        // # create an empty stack and push root to it
-        let nodeStack = [];
-        let arr = [];
-        nodeStack.push(root);
-        while (nodeStack.length > 0) {
-                node = nodeStack.pop();
-                arr.push(node.val);
-                if (node.right !== null) {
-                        nodeStack.push(node.right);
-                }
 
-                if (node.left !== null) {
-                        nodeStack.push(node.left);
+var preOrderTraversal = function(root) {
+        var list = [];
+        let stack = [root];
+        while (stack.length !== 0) {
+                const cur = stack.pop();
+                const right = cur.right;
+                const left = cur.left;
+                list.push(cur.val);
+                if (right) {
+                        stack.push(right);
+                }
+                if (left) {
+                        stack.push(left);
                 }
         }
-        return arr;
+        return list;
 }
 let root = new Node(1);
 root.left = new Node(5);
