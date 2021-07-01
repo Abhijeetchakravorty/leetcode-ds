@@ -3,28 +3,22 @@ var Node = function(val) {
         this.left = this.right = null;
 }
 const lowestCommonAncestor = (root, p, q) => {
-        let result;
-        const find = (root, p, q, count = 0) => {
-                if (!root) return 0;
-                let foundOne = (root.val === p.val || root.val == q.val);
-                if (foundOne) {
-                        count++;
-                        if (count === 2) return count;
-                }
-                const left = find(root.left, p, q, count);
-                if (left === 2) {
-                        if (foundOne) result = root;
-                        return left;
-                }
-                const right = find(root.right, p, q, count || left);
-                if (right === 2) {
-                        if (foundOne || left) result = root;
-                        return right;
-                }
-                return count || left || right;
+        var ans = null;
+        var recursive_tree = function(curr_node) {
+            if (curr_node === null) {
+                return curr_node;
+            }
+            
+            let left = recursive_tree(curr_node.left);
+            let right = recursive_tree(curr_node.right);
+            let mid = (curr_node == p || curr_node == q);
+            if (mid+left+right >= 2) {
+                ans = curr_node;
+            }
+            return (mid || left || right);
         }
-        find(root, p, q);
-        return result;
+        recursive_tree(root);
+        return ans;
 };
 let root = new Node(3);
 root.left = new Node(5);
