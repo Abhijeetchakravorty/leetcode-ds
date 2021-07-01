@@ -1,13 +1,15 @@
 // LEFT ----> RIGHT -----> ROOT
 class Node {
-    constructor(val, left, right) {
-            this.val = (val === undefined ? null : val);
-            this.left = (left === undefined ? null : left);
-            this.right = (right === undefined ? null : right);
-    }
+        constructor(val, left, right) {
+                this.val = (val === undefined ? null : val);
+                this.left = (left === undefined ? null : left);
+                this.right = (right === undefined ? null : right);
+        }
 }
 
 var postorderTraversal = function(root) {
+        /// postorder traversal
+        /// LEFT ----> RIGHT ----> ROOT
         let result = [];
         let nodeStack = [];
         let data = root;
@@ -21,6 +23,7 @@ var postorderTraversal = function(root) {
                         data = node.left;
                 }
         }
+        
         return result;
 }
 

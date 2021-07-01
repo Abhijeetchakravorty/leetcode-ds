@@ -1,4 +1,4 @@
-// left --> root --> right
+/// LEFT ------> ROOT ----> RIGHT
 class Node {
         constructor(val, left, right) {
                 this.val = (val === undefined ? 0 : val);
@@ -7,30 +7,19 @@ class Node {
         }
 }
 var inorderTraversal = function(root) {
-        let arr = [];
+        let res = [];
         let nodeStack = [];
-        let mainNode = null;
-        while (root !== null || nodeStack.length !== 0) {
-                let temp = root;
-                if (temp.left !== null) {
-                        nodeStack.push(temp.left);
-                        mainNode = nodeStack.pop();
-                        arr.push(mainNode.val);
-                        temp.left = null;
-                        root = temp;
-                } else {
-                        nodeStack.push(temp);
-                        mainNode = nodeStack.pop();
-                        arr.push(mainNode.val);
-                        if (temp.right !== null) {
-                                root = temp.right;
-                                temp.right = null;
-                        } else {
-                                root = null;
-                        }
+        let curr = root;
+        while (curr !== null || nodeStack.length > 0) {
+                while (curr != null) {
+                        nodeStack.push(curr);
+                        curr = curr.left;
                 }
+                curr = nodeStack.pop();
+                res.push(curr.val);
+                curr = curr.right;
         }
-        return arr;
+        return res;
 }
 let root = new Node(1);
 root.right = new Node(2);
