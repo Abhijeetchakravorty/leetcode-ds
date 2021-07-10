@@ -4,15 +4,14 @@ class Solution:
                 self.nums2 = [2, 5, 6]
                 self.num3 = self.nums1 + self.nums2
 
-        def updateArr(self, indx):
-                if (indx < len(self.num3)):
-                        if (self.num3[indx] == 0):
-                                del self.num3[indx]
-                                indx = 0
-                        else:
-                                indx += 1
-                        self.updateArr(indx+1)
-                return sorted(self.num3)
+        def merge(self, nums1, m, nums2, n):
+                j = i = 0
+                while j < n:
+                        if i >= m + j or nums1[i] >= nums2[j]:
+                                nums1.pop()
+                                nums1.insert(i, nums2[j])
+                                j += 1
+                        i += 1
 p1 = Solution()
-p2 = p1.updateArr(0)
+p2 = p1.merge(0)
 print(p2)
